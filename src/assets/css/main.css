@@ -6317,7 +6317,7 @@ button.close {
 }
 
 .carousel-indicators .active {
-	background-color: #fff
+	background-color: black;
 }
 
 .carousel-caption {

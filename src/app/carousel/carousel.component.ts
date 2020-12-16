@@ -7,32 +7,49 @@ import { $ } from 'protractor';
   styleUrls: ['./carousel.component.css', '../../assets/css/main.css'],
 })
 export class CarouselComponent implements OnInit {
-  slideName: string = 'Test';
-
   slideArray: boolean[] = [true, false, false];
+
+  slideInterval: number = 10;
+
+  currentActiveIndex: number = 0;
+
+  intervalId: any;
+
+  clock = new Date();
+
+  ngOnInit(): void {
+    this.intervalId = setInterval(() => (this.clock = new Date()), 1000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+  }
 
   constructor() {}
 
-  ngOnInit(): void {}
-
-  previousClick() {
-
-    const currentActiveIndex = this.slideArray.findIndex((element) => true);
+  previousSlider(currentActiveIndex: number) {
     const lastElementIndex = this.slideArray.length - 1;
-    let index = 0;
 
     this.slideArray[currentActiveIndex] = false;
 
-    if (currentActiveIndex == 0) {
-      index = lastElementIndex;
-    } else {
-      index = currentActiveIndex - 1;
-    }
-console.log(index);
-    this.slideArray[index] = true;
+    this.currentActiveIndex =
+      currentActiveIndex == 0 ? lastElementIndex : currentActiveIndex - 1;
+
+    this.slideArray[this.currentActiveIndex] = true;
   }
 
-  nextClick() {
-    alert('next');
+  nextSlider(currentActiveIndex: number) {
+    const lastElementIndex = this.slideArray.length - 1;
+
+    this.slideArray[currentActiveIndex] = false;
+
+    this.currentActiveIndex =
+      currentActiveIndex == lastElementIndex ? 0 : currentActiveIndex + 1;
+
+    this.slideArray[this.currentActiveIndex] = true;
+  }
+
+  triggerSlider() {
+    return Number.isInteger(this.clock.getSeconds() / this.slideInterval) ? true : false;
   }
 }

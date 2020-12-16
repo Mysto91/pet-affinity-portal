@@ -1,8 +1,8 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" [ngClass]="slideArray[0] ? 'active' : ''"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" [ngClass]="slideArray[1] ? 'active' : ''"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" [ngClass]="slideArray[2] ? 'active' : ''"></li>
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item" [ngClass]="slideArray[0] ? 'active' : ''">
@@ -15,12 +15,13 @@
         <img class="d-block w-100" src="https://geo.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgeo.2F2020.2F01.2F06.2Fa343e643-51cc-491b-9df1-9807b718efe1.2Ejpeg/1800x675/background-color/ffffff/quality/90/picture.jpg" alt="Third slide">
       </div>
     </div>
-    <a class="carousel-control-prev" (click)="previousClick()" role="button" data-slide="prev">
+    <a class="carousel-control-prev" (click)="previousSlider(currentActiveIndex)" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" (click)="nextClick()" role="button" data-slide="next">
+    <a class="carousel-control-next" (click)="nextSlider(currentActiveIndex)" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+    <div *ngIf="triggerSlider()">{{nextSlider(currentActiveIndex)}}</div>
   </div>
