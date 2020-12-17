@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MenuToolbarComponent } from './menu-toolbar/menu-toolbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { FooterComponent } from './footer/footer.component';
-import { HeadComponent } from './head/head.component';
+import { DiagonalBoxComponent } from './diagonal-box/diagonal-box.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { HeadComponent } from './head/head.component';
     MenuToolbarComponent,
     CarouselComponent,
     FooterComponent,
-    HeadComponent
+    DiagonalBoxComponent
   ],
   imports: [
     BrowserModule

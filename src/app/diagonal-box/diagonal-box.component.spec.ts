@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeadComponent } from './head.component';
+import { DiagonalBoxComponent } from './diagonal-box.component';
 
-describe('HeadComponent', () => {
-  let component: HeadComponent;
-  let fixture: ComponentFixture<HeadComponent>;
+describe('DiagonalBoxComponent', () => {
+  let component: DiagonalBoxComponent;
+  let fixture: ComponentFixture<DiagonalBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeadComponent ]
+      declarations: [ DiagonalBoxComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeadComponent);
+    fixture = TestBed.createComponent(DiagonalBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

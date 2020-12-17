@@ -5,7 +5,9 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2" [ngClass]="slideArray[2] ? 'active' : ''"></li>
     </ol>
     <div class="carousel-inner">
-      <div id="first-image" class="carousel-item" [ngClass]="slideArray[0] ? 'active' : ''"></div>
+      <div id="first-image" class="carousel-item" [ngClass]="slideArray[0] ? 'active' : ''">
+        <div><p>First Slide</p></div>
+      </div>
       <div id="second-image" class="carousel-item" [ngClass]="slideArray[1] ? 'active' : ''"></div>
       <div id="third-image" class="carousel-item" [ngClass]="slideArray[2] ? 'active' : ''"></div>
     </div>

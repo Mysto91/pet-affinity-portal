@@ -1,0 +1,27 @@
+.diagonal-box {
+    z-index: -1;
+    opacity: 0.5;
+    background-image: linear-gradient(45deg, #bdc3c7, #2c3e50);
+    height: 500px;
+    transform: skewY(-30deg) translateY(20px);
+    position: relative;
+} 
+
+.diagonal-box:before {
+	position: absolute;
+    transform: skewY(-30deg);
+}
+
+.content { 	
+    height: 200px;
+	max-width: 50em;
+    margin: 0 auto; 
+    position: relative;
+    transform: skewY(30deg);
+}
+
+p {
+    color: white;
+    transform: translateY(300px);
+}
+
