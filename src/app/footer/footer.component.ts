@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrls: [
     './footer.component.css',
-    '../../assets/css/main.css'
+    '../../assets/css/boostrap.css'
   ]
 })
 export class FooterComponent implements OnInit {

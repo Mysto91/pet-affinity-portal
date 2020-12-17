@@ -4,7 +4,7 @@ import { $ } from 'protractor';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css', '../../assets/css/main.css'],
+  styleUrls: ['./carousel.component.css', '../../assets/css/boostrap.css'],
 })
 export class CarouselComponent implements OnInit {
   slideArray: boolean[] = [true, false, false];
@@ -26,6 +26,10 @@ export class CarouselComponent implements OnInit {
   }
 
   constructor() {}
+
+  ngAfterViewInit() : void {
+    
+  }
 
   previousSlider(currentActiveIndex: number) {
     const lastElementIndex = this.slideArray.length - 1;

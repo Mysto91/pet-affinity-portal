@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './menu-toolbar.component.html',
   styleUrls: [
     './menu-toolbar.component.css',
-    '../../assets/css/main.css'
+    '../../assets/css/boostrap.css'
   ]
 })
 export class MenuToolbarComponent implements OnInit {

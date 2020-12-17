@@ -5,23 +5,15 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2" [ngClass]="slideArray[2] ? 'active' : ''"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item" [ngClass]="slideArray[0] ? 'active' : ''">
-        <img class="d-block w-100" src="https://www.thoughtco.com/thmb/tvwgSUCv_BZb6JFJHwf--3j70Ag=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-697389167-5a737ae0ba617700372d5569.jpg" alt="First slide">
-      </div>
-      <div class="carousel-item" [ngClass]="slideArray[1] ? 'active' : ''">
-        <img class="d-block w-100" src="https://iphonesoft.fr/images/_082019/fond-ecran-dynamique-macos-wallpaper-club.jpg" alt="Second slide">
-      </div>
-      <div class="carousel-item" [ngClass]="slideArray[2] ? 'active' : ''">
-        <img class="d-block w-100" src="https://geo.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgeo.2F2020.2F01.2F06.2Fa343e643-51cc-491b-9df1-9807b718efe1.2Ejpeg/1800x675/background-color/ffffff/quality/90/picture.jpg" alt="Third slide">
-      </div>
+      <div id="first-image" class="carousel-item" [ngClass]="slideArray[0] ? 'active' : ''"></div>
+      <div id="second-image" class="carousel-item" [ngClass]="slideArray[1] ? 'active' : ''"></div>
+      <div id="third-image" class="carousel-item" [ngClass]="slideArray[2] ? 'active' : ''"></div>
     </div>
-    <a class="carousel-control-prev" (click)="previousSlider(currentActiveIndex)" role="button" data-slide="prev">
+    <div id="previous-slide" class="carousel-control-prev" (click)="previousSlider(currentActiveIndex)" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" (click)="nextSlider(currentActiveIndex)" role="button" data-slide="next">
+    </div>
+    <div id="next-slide" class="carousel-control-next" (click)="nextSlider(currentActiveIndex)" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    </div>
     <div *ngIf="triggerSlider()">{{nextSlider(currentActiveIndex)}}</div>
-  </div>
+</div>
