@@ -6,6 +6,7 @@ import { MenuToolbarComponent } from './menu-toolbar/menu-toolbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { DiagonalBoxComponent } from './diagonal-box/diagonal-box.component';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { DiagonalBoxComponent } from './diagonal-box/diagonal-box.component';
     MenuToolbarComponent,
     CarouselComponent,
     FooterComponent,
-    DiagonalBoxComponent
+    DiagonalBoxComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule

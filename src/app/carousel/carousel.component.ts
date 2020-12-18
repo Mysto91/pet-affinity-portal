@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { $ } from 'protractor';
+import { SendClockService } from '../send-clock.service';
 
 @Component({
   selector: 'app-carousel',
@@ -13,19 +14,21 @@ export class CarouselComponent implements OnInit {
 
   currentActiveIndex: number = 0;
 
-  intervalId: any;
+  clock: any;
 
-  clock = new Date();
+  subscription;
+
+  constructor(private data : SendClockService) {}
 
   ngOnInit(): void {
-    this.intervalId = setInterval(() => (this.clock = new Date()), 1000);
+    this.subscription = this.data.accessMessage().subscribe(msg => this.clock = msg);
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.intervalId);
+    this.subscription.unsubscribe();
   }
 
-  constructor() {}
+
 
   ngAfterViewInit() : void {
     
@@ -54,6 +57,6 @@ export class CarouselComponent implements OnInit {
   }
 
   triggerSlider() {
-    return Number.isInteger(this.clock.getSeconds() / this.slideInterval) ? true : false;
+    return Number.isInteger(this.clock / this.slideInterval) ? true : false;
   }
 }
