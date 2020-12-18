@@ -20,8 +20,6 @@ export class ArticleSearchComponent implements OnInit {
         .subscribe(response => {
             this.count = response.totalItems;
 
-            const itemList = response.items;
-
             this.articleList = response.items.map(item => new Article(item.volumeInfo.title));
 
             console.log(this.articleList);
