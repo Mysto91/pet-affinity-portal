@@ -17,14 +17,11 @@ export class ArticleSearchComponent implements OnInit {
   constructor(private httpClient : HttpClient) { }
 
   ngOnInit(): void {
-      this.httpClient.get<jsonResponse>(this.articleListUrl)
+      this.httpClient.get(this.articleListUrl)
         .subscribe(
           response => {
-            this.count = response.totalItems;
-            //console.log(response.data['hydra:member']);
-            /*this.articleList = response.items.map(item => new Article(item.volumeInfo.title));*/
-            console.log(environment.API_URL);
-            console.log(response);
+            this.articleList = <Array<Article>> response['hydra:member'];
+            console.log(this.articleList);
           },
           error => {
             console.log(error);
@@ -32,15 +29,6 @@ export class ArticleSearchComponent implements OnInit {
         );
   }
 
-}
-
-export interface jsonResponse {
-  totalItems: number;
-  items: Array<{
-    volumeInfo: {
-        title: string;
-    }
-  }>;
 }
 
 export class Article {
@@ -58,12 +46,3 @@ export type Entity = {
   "@id": EntityReference;
 };
 
-export type HydraCollectionResponse<T extends Entity> = {
-  "hydra:totalItems": number;
-  "hydra:view": {
-    "hydra:first": string;
-    "hydra:last": string;
-    "hydra:next": string;
-  };
-  "hydra:member": T[];
-};
