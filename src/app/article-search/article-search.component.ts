@@ -18,16 +18,17 @@ export class ArticleSearchComponent implements OnInit {
 
   ngOnInit(): void {
       this.httpClient.get<jsonResponse>(this.articleListUrl)
-        .subscribe(response => {
-                      this.count = response.totalItems;
-                      //console.log(response.data['hydra:member']);
-                      /*this.articleList = response.items.map(item => new Article(item.volumeInfo.title));*/
-                      console.log(environment.API_URL);
-                      console.log(response);
-                  },
-                   error => {
-                      console.log(error);
-                   }  
+        .subscribe(
+          response => {
+            this.count = response.totalItems;
+            //console.log(response.data['hydra:member']);
+            /*this.articleList = response.items.map(item => new Article(item.volumeInfo.title));*/
+            console.log(environment.API_URL);
+            console.log(response);
+          },
+          error => {
+            console.log(error);
+          }
         );
   }
 
