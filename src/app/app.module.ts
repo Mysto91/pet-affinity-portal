@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DiagonalBoxComponent } from './diagonal-box/diagonal-box.component';
 import { ClockComponent } from './clock/clock.component';
 import { ArticleSearchComponent } from './article-search/article-search.component';
+import { environment } from './../environments/environment';
 
 @NgModule({
   declarations: [

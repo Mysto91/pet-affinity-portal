@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-article-search',
@@ -11,19 +12,23 @@ export class ArticleSearchComponent implements OnInit {
   count: number;
   articleList: Article[];
 
-  private articleListUrl = 'https://www.googleapis.com/books/v1/volumes?q=extreme%20programming';
+  private articleListUrl = environment.API_URL + '/articles?page=1';
   
   constructor(private httpClient : HttpClient) { }
 
   ngOnInit(): void {
       this.httpClient.get<jsonResponse>(this.articleListUrl)
         .subscribe(response => {
-            this.count = response.totalItems;
-
-            this.articleList = response.items.map(item => new Article(item.volumeInfo.title));
-
-            console.log(this.articleList);
-        });
+                      this.count = response.totalItems;
+                      //console.log(response.data['hydra:member']);
+                      /*this.articleList = response.items.map(item => new Article(item.volumeInfo.title));*/
+                      console.log(environment.API_URL);
+                      console.log(response);
+                  },
+                   error => {
+                      console.log(error);
+                   }  
+        );
   }
 
 }
@@ -45,3 +50,19 @@ export class Article {
 
   getTitle = () => this.title;
 }
+
+export type EntityReference = string;
+
+export type Entity = {
+  "@id": EntityReference;
+};
+
+export type HydraCollectionResponse<T extends Entity> = {
+  "hydra:totalItems": number;
+  "hydra:view": {
+    "hydra:first": string;
+    "hydra:last": string;
+    "hydra:next": string;
+  };
+  "hydra:member": T[];
+};

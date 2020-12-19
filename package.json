@@ -2,6 +2,7 @@
   "name": "pet-affinity-portal",
   "version": "0.0.0",
   "scripts": {
+    "config": "ts-node set-env.ts",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -11,6 +12,8 @@
   },
   "private": true,
   "dependencies": {
+    "colors": "^1.1.2",
+    "dotenv": "^5.0.0",
     "@angular/animations": "~10.1.6",
     "@angular/common": "~10.1.6",
     "@angular/compiler": "~10.1.6",
