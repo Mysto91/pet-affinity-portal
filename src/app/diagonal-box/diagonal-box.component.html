@@ -1,16 +1,8 @@
 <div class="diagonal-box">
 	<div class="content">
-        <div class="content-paragraph">
-            <h1>43 000</h1>
-            <p>
-                Animaux adoptés en 2019
-            </p> 
-        </div>
-        <div class="content-paragraph">
-            <h1>1500</h1>
-            <p>
-                Adoptés via l'application
-            </p> 
+        <div *ngFor="let article of articleList" class="content-paragraph">
+            <h1>{{article.title}}</h1>
+            <p>{{article.description}}</p> 
         </div>
     </div>
 </div>

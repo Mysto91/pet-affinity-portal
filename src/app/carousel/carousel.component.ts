@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { $ } from 'protractor';
-import { SendClockService } from '../send-clock.service';
+import { SendClockService } from '../service/send-clock.service';
 
 @Component({
   selector: 'app-carousel',

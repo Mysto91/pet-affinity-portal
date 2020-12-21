@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { SendClockService } from '../send-clock.service';
+import { SendClockService } from '../service/send-clock.service';
 
 @Component({
   selector: 'app-clock',
